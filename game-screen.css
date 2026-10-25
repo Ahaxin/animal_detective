@@ -10,3 +10,11 @@
 /* Browser chrome, notches and home indicators belong outside the playable HUD. */
 @media(max-width:739px){.game-hud{padding-top:max(14px,env(safe-area-inset-top));padding-left:max(13px,env(safe-area-inset-left));padding-right:max(13px,env(safe-area-inset-right))}.objective{top:calc(128px + env(safe-area-inset-top,0px));max-width:calc(100% - 28px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}#player-badge,#scene-bottom{display:none}#game-toolbar{bottom:calc(14px + env(safe-area-inset-bottom,0px));max-width:calc(100% - 28px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px))}#dialogue{bottom:calc(14px + env(safe-area-inset-bottom,0px))}.cover-copy{top:calc(85px + env(safe-area-inset-top,0px))}.cover .actions{bottom:calc(45px + env(safe-area-inset-bottom,0px))}#toast{bottom:calc(120px + env(safe-area-inset-bottom,0px))}}
 @media(max-height:650px) and (min-width:740px){.game-hud{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}#game-toolbar{left:max(20px,env(safe-area-inset-left));bottom:max(20px,env(safe-area-inset-bottom))}#scene-bottom{display:none}}
+/* 3D exploration replaces the decorative detective badge with a thumb joystick. */
+#movement-pad{position:absolute;z-index:12;left:max(22px,env(safe-area-inset-left));bottom:max(34px,env(safe-area-inset-bottom));width:114px;height:114px;border:2px solid #f4e8c47a;border-radius:50%;background:#334c4266;box-shadow:inset 0 0 28px #192e3440,0 5px 24px #1e37252b;touch-action:none;display:grid;place-items:center;user-select:none}
+#movement-pad[hidden]{display:none}#stick-knob{display:block;width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#f7eac5,#b3a17b);border:2px solid #fff3d1;box-shadow:0 4px 10px #253a4266;pointer-events:none}
+.scene-vignette{opacity:.2}#player-badge{display:none!important}
+@media(max-width:600px){#movement-pad{width:100px;height:100px;left:18px;bottom:110px}#game-toolbar{max-width:calc(100% - 24px)}#scene-bottom{display:none}}
+@media(max-height:520px) and (orientation:landscape){#game-toolbar{left:auto;right:14px}#movement-pad{bottom:20px;left:20px;width:100px;height:100px}}
+
+.hotspot::after{content:"";position:absolute;bottom:100%;left:50%;height:var(--anchor-offset,0px);border-left:1px dashed #665e3b;pointer-events:none}

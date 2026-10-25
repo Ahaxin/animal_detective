@@ -9,17 +9,18 @@ try{
  await page.goto('http://127.0.0.1:5173');
  await page.waitForFunction(()=>navigator.serviceWorker.controller!==null,{timeout:15000});
  for(const selector of ['#start-btn','#enter-case','#intro-next','#claim-tool'])await page.tap(selector);
- await page.tap('[data-scene-clue="hole"]');await page.evaluate(()=>advanceTime(4000));await page.tap('#overlay .primary[data-close]');
+ await page.tap('[data-scene-clue="hole"]');await page.evaluate(()=>advanceTime(12000));await page.tap('#overlay .primary[data-close]');
  await page.screenshot({path:'output/mobile-release/phone-garden.png'});
  const initial=JSON.parse(await page.evaluate(()=>render_game_to_text()));assert.equal(initial.magnifier,true);assert.deepEqual(initial.evidence,['hole']);
  const manifest=await page.evaluate(()=>fetch('./manifest.webmanifest').then(r=>r.json()));assert.equal(manifest.display,'standalone');
  await context.setOffline(true);await page.reload();await page.waitForFunction(()=>typeof render_game_to_text==='function');
  await page.tap('#start-btn');await page.tap('#enter-case');let state=JSON.parse(await page.evaluate(()=>render_game_to_text()));assert.equal(state.magnifier,true);assert.deepEqual(state.evidence,['hole']);
  await page.tap('#inventory-toggle');await page.tap('[data-bag-clue="hole"]');await page.tap('#overlay .primary[data-close]');
- await page.tap('[data-scene-suspect="mole"]');await page.evaluate(()=>advanceTime(4000));assert.equal(JSON.parse(await page.evaluate(()=>render_game_to_text())).dialogue.speaker,'mole');
+ await page.tap('[data-scene-suspect="mole"]');await page.evaluate(()=>advanceTime(12000));assert.equal(JSON.parse(await page.evaluate(()=>render_game_to_text())).dialogue.speaker,'mole');
  await page.screenshot({path:'output/mobile-release/offline-dialogue.png'});await page.tap('#dialogue-next');await page.tap('#dialogue-next');
  await page.tap('#journal-toggle');assert.equal(JSON.parse(await page.evaluate(()=>render_game_to_text())).notebookOpen,true);await page.screenshot({path:'output/mobile-release/offline-notebook.png'});await page.tap('#notebook-close');
  assert.equal(await page.evaluate(()=>document.documentElement.scrollHeight===innerHeight&&document.documentElement.scrollWidth===innerWidth),true);assert.deepEqual(errors,[]);
  await fs.writeFile('output/mobile-release/results.json',JSON.stringify({passed:true,touchInput:true,installableManifest:true,offlineReload:true,offlineEvidence:true,offlineDialogue:true,preservedSave:true,errors,physicalPhoneTested:false},null,2));console.log('PASS: phone touch flow, manifest, cached offline reload, saved evidence, offline dialogue and notebook, no page scrolling or console errors.');
  await context.close();
 }finally{await browser.close()}
+

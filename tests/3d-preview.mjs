@@ -1,0 +1,3 @@
+import {chromium} from './playwright-runtime.mjs';
+import fs from 'node:fs/promises';
+const b=await chromium.launch({headless:true});const p=await b.newPage({viewport:{width:1440,height:900}});p.on('pageerror',console.log);await p.goto('http://127.0.0.1:5173');await p.locator('#start-btn').click();await p.locator('#enter-case').click();await p.locator('#intro-next').click();await p.locator('#claim-tool').click();await p.waitForTimeout(800);await fs.mkdir('output/3d',{recursive:true});await p.screenshot({path:'output/3d/desktop.png'});console.log(await p.evaluate(()=>render_game_to_text()));await p.setViewportSize({width:390,height:844});await p.waitForTimeout(300);await p.screenshot({path:'output/3d/phone.png'});await b.close();

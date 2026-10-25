@@ -1,1 +1,17 @@
-{"name":"animal-detective","version":"0.1.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node tests/game.test.mjs"}}
+{
+  "name": "animal-detective",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node tests/game.test.mjs",
+    "build:3d": "esbuild world3d.js --bundle --minify --format=iife --outfile=world3d.bundle.js"
+  },
+  "dependencies": {
+    "three": "0.180.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.11"
+  }
+}

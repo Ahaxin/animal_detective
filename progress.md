@@ -12,3 +12,6 @@ Preview: node server.mjs serves http://127.0.0.1:5173. Local sandbox network res
 
 Scope for future work: cases 2–5, remaining 13 character assets and gameplay, house building after 10 characters, richer walking/ending sprite animation. Current version uses a 2.5D illustrated scene with idle/walk bobbing and dialogue ending; no skeletal or 3D animations. Locked future content is clearly marked unavailable. Assets/ART-NOTES.md records exact generation prompts.
 Final checks: fixed missing favicon found by skill console tracker; output/verified-smoke has no errors file. tests/offline.test.mjs passed direct file:// startup, evidence interaction and persistent reload with zero HTTP(S) requests. Inspected final offline gameplay screenshot at output/qa/12-offline.png.
+
+2026-10-25 3D: Replaced illustrated canvas with bundled Three.js miniature garden and original animal meshes, real shadows, walk animation, keyboard/touch joystick, bounded collision and grid navigation. Retained case and v1 saves; invalid old positions relocate without losing progression. All case, layout, joystick/collision, offline and skill-client checks passed. Desktop/mobile screenshots inspected. Fixed Dutch label overlap. Sites update and GitHub sync underway.
+Sites 3D version 2 deployed successfully; public audience preserved. GitHub main synchronization follows.

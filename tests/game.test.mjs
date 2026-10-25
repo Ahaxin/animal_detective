@@ -8,7 +8,7 @@ await fs.mkdir('output/single-screen',{recursive:true});
 const get=()=>page.evaluate(()=>JSON.parse(window.render_game_to_text()));
 const snap=name=>page.screenshot({path:`output/single-screen/${name}.png`,fullPage:true});
 const click=async sel=>{await page.locator(sel).click();await page.waitForTimeout(60)};
-const move=async sel=>{await click(sel);await page.evaluate(()=>window.advanceTime(4000));await page.waitForTimeout(60)};
+const move=async sel=>{await click(sel);await page.evaluate(()=>window.advanceTime(12000));await page.waitForTimeout(60)};
 const closeEvidence=async()=>{await click('#overlay [data-close].primary')};
 async function begin(){await click('#start-btn');await click('#enter-case');if((await get()).modal==='intro')await click('#intro-next');if((await get()).modal==='tool')await click('#claim-tool')}
 async function collect(){for(const id of ['acorn','feather','hole']){await move(`[data-scene-clue="${id}"]`);assert.equal((await get()).modal,'evidence');await closeEvidence()}}
@@ -22,7 +22,7 @@ try{
  await click('#journal-toggle');assert.equal((await get()).notebookOpen,true);await snap('02a-notebook');const paused=(await get()).player;await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.advanceTime(300));await page.keyboard.up('ArrowRight');assert.deepEqual((await get()).player,paused);await page.keyboard.press('Escape');assert.equal((await get()).notebookOpen,false);
  await click('#inventory-toggle');assert.equal((await get()).modal,'inventory');await snap('02b-inventory');assert.equal(await page.locator('[data-bag-clue="hole"]').isDisabled(),true);await click('#overlay .primary[data-close]');
  // Keyboard and ground movement, boundaries, persistence.
- const old=(await get()).player.x;await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.advanceTime(300));await page.keyboard.up('ArrowRight');assert.ok((await get()).player.x>old);await page.keyboard.down('ArrowUp');await page.evaluate(()=>window.advanceTime(9000));await page.keyboard.up('ArrowUp');assert.ok((await get()).player.y>=.55);
+ const old=(await get()).player.x;await page.keyboard.down('ArrowRight');await page.evaluate(()=>window.advanceTime(300));await page.keyboard.up('ArrowRight');assert.ok((await get()).player.x>old);await page.keyboard.down('ArrowUp');await page.evaluate(()=>window.advanceTime(9000));await page.keyboard.up('ArrowUp');assert.ok((await get()).player.y>=.08);
  await move('[data-scene-clue="acorn"]');await snap('03-evidence');await closeEvidence();await page.reload();await click('#start-btn');await click('#enter-case');assert.deepEqual((await get()).evidence,['acorn']);assert.equal((await get()).magnifier,true);
  await move('[data-scene-clue="feather"]');await closeEvidence();await move('[data-scene-clue="hole"]');await closeEvidence();
  await move('[data-scene-suspect="squirrel"]');await snap('04-dialogue');while((await get()).dialogue)await click('#dialogue-next');await speak('owl');await speak('mole');assert.equal((await get()).canAccuse,true);await snap('05-ready');

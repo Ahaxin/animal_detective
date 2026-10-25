@@ -84,3 +84,22 @@ P3
 
 P4
 扩展角色行走和结尾动画。
+
+## 3D mobile audit (2026-10-25)
+P2: Characters are small in portrait overview; physical phone readability/performance still need user playtest. Fixed camera only. P1 resolved: Dutch squirrel label overlapped acorn; layout now separates labels with anchor connector lines.
+Readability 4/5 (browser preview): backed labels, preserved dialogue sizes; all six profiles and Chinese/Dutch passed hit testing. Joystick replaces detective badge; no extra resource panels. Focus: garden/player ★★★★★, clues ★★★★, objective ★★★. Real touch drag/release, pause, collision, offline reload verified. First 30 seconds: movement ✔, goal ✔, free tool ✔, progress ✔. Continued-play appeal 4/5 is a design heuristic, not measured retention. Store UI complaint risk estimated 20%, principally portrait character scale and untested physical devices.
+==========
+UI Score
+Readable 8/10
+UX 8/10
+Accessibility 6/10
+Commercial 9/10
+Retention 7/10
+Google Play Risk 2/10
+Priority
+P0 None observed in tests
+P1 None outstanding in browser matrix
+P2 Physical phone character scale, WebGL compatibility and frame pacing
+P3 Richer materials and character silhouettes
+P4 Camera follow/orbit and richer animations
+==========

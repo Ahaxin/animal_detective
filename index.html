@@ -8,10 +8,12 @@
  <div id="objective" class="objective"><span class="objective-icon">◇</span><div><b id="objective-title">让花园说出秘密</b><span id="objective-progress">线索 0/3 · 证词 0/3</span></div></div>
  <div id="player-badge"><img id="player-portrait" src="assets/bird.webp" alt=""><span id="player-name">鸟侦探</span></div>
  <nav id="game-toolbar" aria-label="调查工具栏"><button id="journal-toggle"><span class="dock-icon">▤</span><span id="journal-label">侦探手记</span><small id="journal-count">0/3</small></button><button id="inventory-toggle"><span class="dock-icon">⌕</span><span id="inventory-label">背包</span><small id="inventory-count">0/3</small></button><button id="deduce-toggle"><span class="dock-icon">♧</span><span id="deduce-label">推理指认</span><small id="deduce-count">0/6</small></button><button id="hint"><span class="dock-icon">✧</span><span id="hint-label">提示</span><small>1 ✦</small></button></nav>
+ <div id="movement-pad" aria-label="移动摇杆 / Joystick" hidden><span id="stick-knob"></span></div>
  <div id="scene-bottom"><span id="controls">点击地面移动 · 点击角色交谈 · 调查闪光点</span></div><div id="toast" role="status"></div>
  <aside id="notebook" hidden role="dialog" aria-modal="true" aria-label="侦探手记"></aside><div id="overlay" hidden></div><div id="dialogue" hidden></div>
  <div id="edition-sub" hidden></div><div id="scene-time" hidden><span></span></div><span id="save-status" class="sr-only" aria-live="polite"></span>
 </main>
+<script src="world3d.bundle.js"></script>
 <script src="game.js"></script>
 <script src="mobile.js"></script>
 </body></html>
