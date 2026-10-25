@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import {chromium} from './playwright-runtime.mjs';
 const browser=await chromium.launch({headless:true});
 await fs.mkdir('output/single-screen/layout',{recursive:true});
-const profiles=[['desktop',1440,900],['small-desktop',960,600],['landscape',844,390],['portrait-720',720,1280],['portrait-1080',1080,2400],['phone',390,844]];
+const profiles=[['desktop',1440,900],['small-desktop',960,600],['landscape',844,390],['portrait-720',720,1280],['portrait-1080',1080,2400],['phone',390,844],['iphone-x',375,812],['iphone-x-landscape',812,375],['iphone-x-browser',375,635]];
 const results=[];
 const saved={version:1,lang:0,stars:5,hearts:2,coins:23,owned:['bird','fox'],character:'fox',magnifier:true,started:true,clues:['hole'],statements:['owl'],solved:false,rewarded:false,player:{x:.4,y:.86},introSeen:true};
 try{
@@ -25,5 +25,5 @@ try{
   await page.locator('#lang').click();await check();assert.deepEqual(await inspectHits(),[],name+' Dutch unobstructed targets');await page.screenshot({path:`output/single-screen/layout/${name}-dutch.png`});
   assert.deepEqual(errors,[]);results.push({name,width,height,oldSavePreserved:true,unobstructedTargets:true,noPageScroll:true,locales:['zh','nl'],errors});await page.close();
  }
- await fs.writeFile('output/single-screen/layout-results.json',JSON.stringify({passed:true,profiles:results,physicalDeviceTested:false},null,2));console.log('PASS: six screen profiles, existing save, notebook/backpack, 44px hit targets, Chinese/Dutch, zero page scrolling.');
+ await fs.writeFile('output/single-screen/layout-results.json',JSON.stringify({passed:true,profiles:results,physicalDeviceTested:false},null,2));console.log('PASS: nine screen profiles, existing save, notebook/backpack, 44px hit targets, Chinese/Dutch, zero page scrolling.');
 }finally{await browser.close()}

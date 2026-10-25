@@ -103,3 +103,21 @@ P2 Physical phone character scale, WebGL compatibility and frame pacing
 P3 Richer materials and character silhouettes
 P4 Camera follow/orbit and richer animations
 ==========
+
+## iPhone X feedback pass
+P1 resolved: repeated action/name pills and long leaders obscured scenery. At <=900px replace labels with 26px speech bubbles, retain accessible names and dialogue names. Magnifier faces 28px; touch targets 44px; fixed clue projection. No new permanent HUD. Nine viewport profiles/Chinese+Dutch passed; screenshots inspected for iPhone X portrait/landscape; real phone retest pending. First-action clarity: dialogue bubble ✔, magnifier ✔, recorded check ✔. Retention heuristic 4/5; estimated UI complaint risk 15%, no measured store data.
+==========
+UI Score
+Readable 8/10
+UX 8/10
+Accessibility 7/10
+Commercial 9/10
+Retention 7/10
+Google Play Risk 2/10
+Priority
+P0 None observed
+P1 Resolved label occlusion and long leaders
+P2 Confirm icon clarity on physical iPhone X
+P3 Optional HUD compactness
+P4 None
+==========

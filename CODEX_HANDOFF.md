@@ -61,3 +61,11 @@ User mobile playtest on the published URL. Address concrete touch/readability/sa
 - Limitations: WebGL2 required; no physical phone FPS/thermal testing, camera rotation, skeletal animation, or high-detail character models. UI audit appended. No repeated unresolved root cause; DEBUG_HANDOFF.md not needed.
 
 Deployment succeeded: appgdep_6ade3c07deec8191801bc12fc21ebb2a; version appgprj_6ade2c95d3dc8191b525e4b7c78654f0~appgver_564de2a5c9e881918f9257d1d0a0e19d; public URL unchanged. 3D update is live.
+
+## iPhone X marker polish — 2026-10-25
+- User physical iPhone X feedback: Uil/Praten labels obscure scene, star leader lines unclear.
+- game.js/game-screen.css: phone <=900px shows 26px speech bubbles; desktop short names without Praten. Both retain 44px touch buttons and accessible names. 28px magnifier/check icons remain on exact clue projections; no leader lines. Dialogue bubbles avoid clues and HUD using nearby positions.
+- sw.js cache bumped to animal-detective-3d-v3.
+- Nine layout profiles passed both languages, including 375x812, 812x375 and 375x635 browser area; screenshots visually inspected. Mobile offline/touch flow and skill action client passed. Actual Safari device retest remains with user. DEBUG_HANDOFF.md records resolved collision investigation.
+
+Marker polish deployed successfully: Site version 3, source 5fbeda1f2a6ee4bc1f9000746cf19d0ab5d4e70a, deployment appgdep_6ade3fdde0d88191b3ce59e62ad3837f. URL and public audience unchanged.

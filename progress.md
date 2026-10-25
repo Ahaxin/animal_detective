@@ -15,3 +15,5 @@ Final checks: fixed missing favicon found by skill console tracker; output/verif
 
 2026-10-25 3D: Replaced illustrated canvas with bundled Three.js miniature garden and original animal meshes, real shadows, walk animation, keyboard/touch joystick, bounded collision and grid navigation. Retained case and v1 saves; invalid old positions relocate without losing progression. All case, layout, joystick/collision, offline and skill-client checks passed. Desktop/mobile screenshots inspected. Fixed Dutch label overlap. Sites update and GitHub sync underway.
 Sites 3D version 2 deployed successfully; public audience preserved. GitHub main synchronization follows.
+
+2026-10-25 iPhone X feedback: compact speech bubbles replace mobile name/action pills; clues use anchored magnifiers with no leader lines. Nine-profile Chinese/Dutch hit tests and mobile offline interaction pass. Screenshot inspection confirms reduced coverage. See DEBUG_HANDOFF.md for resolved marker/HUD collision checks.
