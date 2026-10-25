@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#354c35"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="description" content="动物侦探：阳光花园第一案。复古漫画风格，中文与荷兰语，收集证物、询问动物、解开谜案。"><title>Animal Detective · 动物侦探</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/icon-192.png"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="game-screen.css"></head>
+<body>
+<main id="game-stage" data-mode="menu" aria-label="Animal Detective">
+ <section class="scene-wrap"><canvas id="scene" width="1280" height="800" aria-label="阳光花园调查场景"></canvas><div class="scene-vignette" aria-hidden="true"></div><div id="hotspots"></div></section>
+ <header class="game-hud"><div id="scene-label"><span>案件 01</span><h1 id="scene-title">阳光花园</h1><p id="scene-subtitle">太阳蓝宝石失窃案</p></div><div class="hud-right"><div class="resources"><span title="星星"><i>✦</i><b id="stars">2</b></span><span title="爱心"><i class="heart">♥</i><b id="hearts">0</b></span><span title="金币"><i class="coin">●</i><b id="coins">0</b></span></div><div class="game-settings"><button id="lang" class="text-button">中文 / NL</button><button id="sound" class="icon-button" aria-label="开启环境音">♪</button><button id="fullscreen" class="icon-button" aria-label="全屏">⛶</button><button id="home" class="icon-button" aria-label="主菜单">☰</button></div></div></header>
+ <div id="objective" class="objective"><span class="objective-icon">◇</span><div><b id="objective-title">让花园说出秘密</b><span id="objective-progress">线索 0/3 · 证词 0/3</span></div></div>
+ <div id="player-badge"><img id="player-portrait" src="assets/bird.webp" alt=""><span id="player-name">鸟侦探</span></div>
+ <nav id="game-toolbar" aria-label="调查工具栏"><button id="journal-toggle"><span class="dock-icon">▤</span><span id="journal-label">侦探手记</span><small id="journal-count">0/3</small></button><button id="inventory-toggle"><span class="dock-icon">⌕</span><span id="inventory-label">背包</span><small id="inventory-count">0/3</small></button><button id="deduce-toggle"><span class="dock-icon">♧</span><span id="deduce-label">推理指认</span><small id="deduce-count">0/6</small></button><button id="hint"><span class="dock-icon">✧</span><span id="hint-label">提示</span><small>1 ✦</small></button></nav>
+ <div id="scene-bottom"><span id="controls">点击地面移动 · 点击角色交谈 · 调查闪光点</span></div><div id="toast" role="status"></div>
+ <aside id="notebook" hidden role="dialog" aria-modal="true" aria-label="侦探手记"></aside><div id="overlay" hidden></div><div id="dialogue" hidden></div>
+ <div id="edition-sub" hidden></div><div id="scene-time" hidden><span></span></div><span id="save-status" class="sr-only" aria-live="polite"></span>
+</main>
+<script src="game.js"></script>
+<script src="mobile.js"></script>
+</body></html>

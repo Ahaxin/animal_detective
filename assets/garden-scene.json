@@ -1,0 +1,10 @@
+{
+  "runtimeOwner": "game.js: sceneCamera, scenePoint, portraitAnchors, clues, suspects",
+  "coordinateSystem": "Normalized background image anchors; cover camera preserves aspect ratio. Actor and interactive layers are separate from background art. Player position is normalized screen space and remains compatible with v1 saves.",
+  "layers": ["static comic environment", "clue object marks", "depth-sorted character sprites", "interactive hotspot buttons", "in-scene HUD", "on-demand notebook and backpack", "dialogue and case overlays"],
+  "landscape": {"image":"garden.png","pedestalGem":{"x":0.52,"y":0.47},"hole":{"x":0.52,"y":0.69}},
+  "portrait": {"image":"garden-portrait.png","pedestalGem":{"x":0.52,"y":0.485},"hole":{"x":0.51,"y":0.625},"feather":{"x":0.88,"y":0.48},"squirrel":{"x":0.74,"y":0.76},"owl":{"x":0.23,"y":0.36}},
+  "interactionBounds": {"screenX":[0.07,0.93],"screenY":[0.08,0.91]},
+  "playerMovementBounds": {"screenX":[0.08,0.92],"screenY":[0.55,0.93]},
+  "collisionAssumptions": "Current point-and-click slice uses a bounded walk zone and scripted approach targets; exhibit and flowerbed obstacle collisions are not implemented. There are no exits or scene changes in this first case."
+}
