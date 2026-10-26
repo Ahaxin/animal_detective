@@ -139,3 +139,21 @@ P2 Physical-device clue tap comfort and music volume
 P3 Optional environmental detail
 P4 None
 ==========
+
+## Orchard case audit — 2026-10-26
+P1 resolved: old toast could cover the tool offers / confirmation; modal opening now clears toast. P2: east paint bucket sits near the portrait edge, but its center is visible and real touch picking passes. No extra persistent panel: only a 23px red ! on existing Tas until tape equipped. Visible 1-heart / 5-coin prices, rental duration, disabled insufficient-funds offers and an exit to case 1. Multi-select has outlines, aria-pressed and 1/2, 2/2 count. Nine profiles in zh/nl pass hit/layout checks; phone tool and combination screenshots inspected. First 30 seconds: next goal ✔, bag tool ✔, price/tenure ✔, movement ✔, progress ✔. Continued-play heuristic 4/5; estimated UI complaint risk 15%, not measured. Physical iPhone retest pending.
+==========
+UI Score
+Readable 8/10
+UX 8/10
+Accessibility 7/10
+Commercial 9/10
+Retention 8/10
+Google Play Risk 2/10
+Priority
+P0 None observed
+P1 Resolved toast occlusion
+P2 Physical-device high-branch/east-bucket tap comfort
+P3 Character detail
+P4 Richer ending animation
+==========

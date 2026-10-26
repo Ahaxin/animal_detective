@@ -1,11 +1,11 @@
 # CODEX_HANDOFF
 
 ## Project Goal
-Offline animal detective game in Chinese and Dutch, European vintage comic art. Only case 1 is in scope. User correction: one complete game screen; all UI inside the scene, no webpage layout, permanent notebook sidebar or document scrolling. Apply guangyuspace/codex-gamestudio-skill.
+Offline animal detective game in Chinese and Dutch, European vintage comic art. Cases 1 and 2 are implemented. User correction: one complete game screen; all UI inside the scene, no webpage layout, permanent notebook sidebar or document scrolling. Apply guangyuspace/codex-gamestudio-skill.
 
 ## Current Phase
 - Phase: 3D playable slice / mobile playtest
-- Status: 3D slice validated; existing Site update in progress
+- Status: two-case playable build validated; orchard release being packaged
 - Roles used: UI/UX, gameplay engineering, QA. One agent; no background role simulation.
 
 ## Latest Work
@@ -79,3 +79,16 @@ Marker polish deployed successfully: Site version 3, source 5fbeda1f2a6ee4bc1f90
 - sw cache animal-detective-3d-v4. Pending physical iPhone/Safari fullscreen and audio volume comfort checks.
 
 2026-10-26 publication succeeded: Site version 4, source e1f9d391797493d410a20f56270f27e3ab69b433, deployment appgdep_6adfa159fd448191a266b40e14366f0c. Public audience and URL unchanged.
+
+## Orchard release — 2026-10-26
+- New orchard.js: Chinese/Dutch second-case clues, suspects, dialogue and paired-evidence confrontation. New procedural orchard in world3d.js: apple trees, central broken branch/banana peel, painted bare footprints, eastern paint pot, stream, honey bear, booted raccoon and monkey. Returned golden apple travels to detective; measuring tape and red soles visible at ending. Original SVG portraits in assets/.
+- game.js retains top-level v1 active-case fields and adds caseId, cases snapshots, completed, tapeOwned and per-case tapeRented. Shared resources/characters never overwritten when switching. Old solved saves mark garden completed. Case selection and first-case Next lead to orchard; both cases available without a hard unlock gate.
+- Bag / Tas red ! until tape available. Buy 1 heart permanent or rent 5 coins; balance and duplicate guards; rental persists reload, switching and wrong-accusation retries, clears on explicit replay. No funds: disabled offers and route back to case archive. No real money.
+- Orchard accusation multi-selects exactly footprint+branch; one/wrong pair gives feedback without charge. Incorrect suspect retains existing 2-star capped penalty; evidence reset only for active case. Rewards garden 3/1/10, orchard 3/1/12 once per completed round; explicit replay earns again as before.
+- First-case magnifier, early accusation, no clue overlays, mobile joystick/music/fullscreen remain. Toasts clear on modal open to prevent blocking tool/combination controls.
+- Passed: full orchard flow incl rental/permanent, old save, no-funds escape, case switching, wrong evidence/retry, both locales and reward-once reload; original full case and nine-layout matrix; orchard nine profiles+two locales and service-worker offline clues/portraits/dialogue. Skill input client completed. Screenshots in output/orchard inspected. Physical iPhone remains user playtest.
+- Runtime additions orchard.js, assets/bear.svg/raccoon.svg/monkey.svg included by build-mobile and SW cache animal-detective-orchard-v5. world3d.bundle.js rebuilt.
+- Narrative fix: monkey covers last night as well as today; paint from entry bucket remains an alternative, not a proven roof match. Weight, footwear and food preference are statements, not independent proof of innocence.
+- Known limits: stylized procedural models and simple ending animation; no third case or house-building implementation. New tool is auto-equipped on acquisition; permanent ownership applies on future replays.
+
+Orchard release published successfully: Site version 5, source 4da387ce6bbe31fa9cd12b89006bffae18a78d3b, deployment appgdep_6adfa80b706081918c527e45492ee4ba. Same public URL.

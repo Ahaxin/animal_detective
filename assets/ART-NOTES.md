@@ -21,3 +21,5 @@ Saved: assets/characters-sheet.png (original); assets/bird.png, assets/fox.png, 
 Use case: illustration-story. Asset type: transparent full body game character sprite. One sleepy tawny owl, round expressive face, large cream eyebrows, half-closed amber eyes, brown and cream feathers, wearing a small vintage sage green waistcoat, sitting upright facing left three-quarter with wings at sides. Classic Franco-Belgian comic book ink and gouache illustration, confident dark brown outlines, warm subtle watercolor texture matching sunny European garden detective adventure. Entire body and both feet visible, centered with transparent margin. No text, no border, no background, no ground shadow. Transparent background.
 
 Saved: assets/owl-source.png (original), assets/owl.png (trimmed sprite).
+
+Orchard assets (2026-10-26): original code-native low-poly meshes authored in world3d.js; bear, raccoon and monkey vector portraits authored as SVG. No new generated raster images or third-party character assets. Palette and proportions follow the existing 3D garden.
