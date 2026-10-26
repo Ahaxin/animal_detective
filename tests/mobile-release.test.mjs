@@ -9,7 +9,7 @@ try{
  await page.goto('http://127.0.0.1:5173');
  await page.waitForFunction(()=>navigator.serviceWorker.controller!==null,{timeout:15000});
  for(const selector of ['#start-btn','#enter-case','#intro-next','#claim-tool'])await page.tap(selector);
- await page.tap('[data-scene-clue="hole"]');await page.evaluate(()=>advanceTime(12000));await page.tap('#overlay .primary[data-close]');
+ await page.evaluate(()=>{const c=JSON.parse(render_game_to_text()).clueLocations.find(c=>c.id==='hole'),r=document.querySelector('#scene').getBoundingClientRect();document.querySelector('#scene').dispatchEvent(new MouseEvent('click',{clientX:r.x+c.x*r.width,clientY:r.y+c.y*r.height,bubbles:true}))});await page.evaluate(()=>advanceTime(12000));await page.tap('#overlay .primary[data-close]');
  await page.screenshot({path:'output/mobile-release/phone-garden.png'});
  const initial=JSON.parse(await page.evaluate(()=>render_game_to_text()));assert.equal(initial.magnifier,true);assert.deepEqual(initial.evidence,['hole']);
  const manifest=await page.evaluate(()=>fetch('./manifest.webmanifest').then(r=>r.json()));assert.equal(manifest.display,'standalone');

@@ -17,3 +17,5 @@ Final checks: fixed missing favicon found by skill console tracker; output/verif
 Sites 3D version 2 deployed successfully; public audience preserved. GitHub main synchronization follows.
 
 2026-10-25 iPhone X feedback: compact speech bubbles replace mobile name/action pills; clues use anchored magnifiers with no leader lines. Nine-profile Chinese/Dutch hit tests and mobile offline interaction pass. Screenshot inspection confirms reduced coverage. See DEBUG_HANDOFF.md for resolved marker/HUD collision checks.
+
+2026-10-26: All five requested changes implemented: no clue overlay icons, immersive viewport, actual-object ray picking with empty-ground navigation, immediate accusation entry, original looping music with saved mute. Full case/layout/new interaction/offline tests pass. Physical iPhone audio/fullscreen still user verification.

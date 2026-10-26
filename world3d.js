@@ -11,7 +11,7 @@ window.createGarden3D=function(canvas){
  const ball=(x,y,z,r,c,p,s=[1,1,1])=>{const m=mesh(new T.IcosahedronGeometry(r,1),c,x,y,z,p);m.scale.set(...s);return m};
  const cyl=(x,y,z,rt,rb,h,c,p,n=12)=>mesh(new T.CylinderGeometry(rt,rb,h,n),c,x,y,z,p);
  const obstacles=[];function solid(x,z,r){obstacles.push({x,z,r})}
- box(0,-.45,0,26,.8,24,'#9aa779');box(0,-.05,0,24,.15,22,'#7e9b69');
+ box(0,-.55,0,160,.5,160,'#849b70');box(0,-.45,0,26,.8,24,'#9aa779');box(0,-.05,0,24,.15,22,'#7e9b69');
  box(0,.035,0,4.2,.08,22,'#d8c5a0');box(0,.04,0,24,.08,3.5,'#d8c5a0');cyl(0,.07,0,4.7,4.7,.1,'#deceb0',scene,48);
  // Inlaid paving stones and low clipped garden walls.
  for(let z=-10;z<=10;z+=1.1)for(let x=-1.55;x<=1.6;x+=1.05)box(x,.09,z,.96,.025,1,'#e5d6b8');
@@ -38,7 +38,7 @@ window.createGarden3D=function(canvas){
  if(bird||fox){cyl(0,2.05,0,.65,.65,.09,'#6f654b',g);cyl(0,2.22,0,.36,.44,.3,'#a28c65',g);cyl(0,2.12,0,.435,.435,.07,'#4e5c47',g);box(0,1.15,.43,.09,.5,.07,'#54624e',g);const ring=mesh(new T.TorusGeometry(.2,.035,6,16),'#d6b568',.65,.95,.25,g);box(.65,.66,.25,.06,.3,.06,'#594c39',g)}
  if(id==='squirrel'||fox){const tail=ball(.1,.8,-.48,.4,fur,g,[.8,1.8,1]);tail.rotation.x=-.4}return {g,feet};}
  const actors={};for(const id of ['bird','fox','squirrel','owl','mole'])actors[id]=animal(id);
- const points={acorn:{x:4,z:2.9},feather:{x:7,z:-.6},hole:{x:0,z:2.5},squirrel:{x:5.5,z:4},owl:{x:-7,z:-4},mole:{x:4,z:-3.8}};
+ const points={acorn:{x:4,z:2.9},feather:{x:7,z:-.6},hole:{x:0,z:2},squirrel:{x:5.5,z:4},owl:{x:-7,z:-4},mole:{x:4,z:-3.8}};
  for(const id of ['squirrel','owl','mole']){actors[id].g.position.set(points[id].x,0,points[id].z);actors[id].g.rotation.y=-.3;solid(points[id].x,points[id].z,.65)}
  cyl(4,.2,2.9,.18,.12,.3,'#9b683a');ball(4,.38,2.9,.2,'#705438');const feather=ball(7,.2,-.6,.3,'#dad7c9',scene,[.35,.15,1.5]);feather.rotation.y=.5;
  const marker=mesh(new T.TorusGeometry(.28,.035,6,24),'#fff1b2',0,.14,0);marker.rotation.x=Math.PI/2;marker.visible=false;
@@ -52,8 +52,11 @@ window.createGarden3D=function(canvas){
  function route(from,to){const a=world(from),b=world(to),grid=.5,key=(x,z)=>x+','+z,start=[Math.round(a.x/grid),Math.round(a.z/grid)],end=[Math.round(b.x/grid),Math.round(b.z/grid)],queue=[start],seen=new Map([[key(...start),null]]);let final=null;
  for(let i=0;i<queue.length&&i<2400;i++){const p=queue[i];if(Math.hypot(p[0]-end[0],p[1]-end[1])<=1){final=p;break}for(const d of [[1,0],[-1,0],[0,1],[0,-1]]){const n=[p[0]+d[0],p[1]+d[1]],k=key(...n);if(seen.has(k)||blocked(n[0]*grid,n[1]*grid))continue;seen.set(k,p);queue.push(n)}}
  if(!final)return [];const out=[];while(final&&key(...final)!==key(...start)){out.unshift(norm({x:final[0]*grid,z:final[1]*grid}));final=seen.get(key(...final))}return out;}
- function project(id){const p=points[id]||{x:0,z:0};const v=new T.Vector3(p.x,id==='owl'||id==='mole'||id==='squirrel'?2.6:.5,p.z).project(camera);return {x:(v.x+1)/2,y:(1-v.y)/2}}
- function resize(w,h){width=w;height=h;renderer.setSize(w,h,false);camera.aspect=w/h;camera.position.set(0,w<h?29:24,w<h?34:27);camera.fov=w<h?53:42;camera.lookAt(look);camera.updateProjectionMatrix();camera.updateMatrixWorld()}
+ function project(id){const p=points[id]||{x:0,z:0};const v=new T.Vector3(p.x,id==='owl'||id==='mole'||id==='squirrel'?2.6:id==='hole'?.16:.3,p.z).project(camera);return {x:(v.x+1)/2,y:(1-v.y)/2}}
+ // Invisible pick volumes cover only the actual evidence objects, not garden regions.
+ const pickables=['acorn','feather','hole'].map(id=>{const p=points[id],m=new T.Mesh(new T.SphereGeometry(id==='hole'?.65:.45,8,6),new T.MeshBasicMaterial());m.position.set(p.x,id==='hole'?.16:.3,p.z);m.updateMatrixWorld();m.userData={type:'clue',id};return m});
+ function pick(x,y){ray.setFromCamera(new T.Vector2(x*2-1,1-y*2),camera);const hits=ray.intersectObjects([...pickables,...['squirrel','owl','mole'].map(id=>actors[id].g)],true);if(!hits.length)return null;let o=hits[0].object;while(o){if(o.userData.type)return o.userData;for(const id of ['squirrel','owl','mole'])if(o===actors[id].g)return {type:'suspect',id};o=o.parent}return null}
+ function resize(w,h){width=w;height=h;renderer.setSize(w,h,false);camera.aspect=w/h;camera.position.set(0,w<h?37:24,w<h?22:27);camera.fov=w<h?47:37;camera.lookAt(look);camera.updateProjectionMatrix();camera.updateMatrixWorld()}
  function render(state,time,target){const p=world(state.player);for(const id of ['bird','fox'])actors[id].g.visible=id===state.character;const a=actors[state.character==='fox'?'fox':'bird'];const speed=lastPos?Math.hypot(p.x-lastPos.x,p.z-lastPos.z):0;if(speed>.0001)facing=Math.atan2(p.x-lastPos.x,p.z-lastPos.z);a.g.position.set(p.x,0,p.z);a.g.rotation.y=facing;a.feet.forEach((f,i)=>f.rotation.x=speed>.0001?Math.sin(time*13+i*Math.PI)*.55:0);lastPos=p;actors.mole.g.visible=!state.solved;gem.visible=state.solved;gem.rotation.y=time*.5;marker.visible=!!target;if(target){const q=world(target);marker.position.set(q.x,.14,q.z)}renderer.render(scene,camera)}
- return {render,resize,project,move,route,world,blocked,obstacles,points,destination:id=>norm({x:points[id].x,z:points[id].z+1}),ground:(x,y)=>{ray.setFromCamera(new T.Vector2(x*2-1,1-y*2),camera);const hit=new T.Vector3();return ray.ray.intersectPlane(plane,hit)&&!blocked(hit.x,hit.z)?norm(hit):null},stats:()=>({drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles})};
+ return {pick,render,resize,project,move,route,world,blocked,obstacles,points,destination:id=>norm({x:points[id].x,z:points[id].z+1}),ground:(x,y)=>{ray.setFromCamera(new T.Vector2(x*2-1,1-y*2),camera);const hit=new T.Vector3();return ray.ray.intersectPlane(plane,hit)&&!blocked(hit.x,hit.z)?norm(hit):null},stats:()=>({drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles})};
 };

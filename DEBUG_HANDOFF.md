@@ -4,3 +4,5 @@ New hypothesis: fixed 44px interaction targets with 26px speech icons on narrow 
 Disproof: existing nine-profile Chinese/Dutch five-point hit test plus screenshots and mobile interactions. Status: pending.
 
 Resolved: narrow landscape additionally required testing against the HUD rectangles, not just other markers. Added nearby side/below candidates and HUD avoidance for dialogue bubbles only. Nine viewports in both languages pass five-point target testing; iPhone X portrait/landscape screenshots inspected. Clues never displaced and no connector lines.
+
+2026-10-26: Previous leader/marker issue superseded: clue DOM markers removed by user request. Full-case test resize issue resolved by waiting for the resize event before reading projected coordinates; full test passes. No open investigation.

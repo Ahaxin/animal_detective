@@ -121,3 +121,21 @@ P2 Confirm icon clarity on physical iPhone X
 P3 Optional HUD compactness
 P4 None
 ==========
+
+## Immersive viewport, 2026-10-26
+P1 addressed: remove clue overlays, title and objective from play HUD; add no permanent panels. Music/fullscreen accessible on phones; compact resources and dock, larger portrait garden. Nine profiles in both languages passed; 375x812 screenshot and real touch object hits inspected. P2 remains: small real clues require careful tapping; physical iPhone fullscreen/audio not verified. Dialogues remain full-size readable. First steps: movement ✔, object investigation ✔ (intro + equipment), progress ✔ (dock); no shop/purchase changes. Continued-play heuristic 4/5; estimated complaint risk 15%, not measured.
+==========
+UI Score
+Readable 8/10
+UX 8/10
+Accessibility 6/10
+Commercial 9/10
+Retention 8/10
+Google Play Risk 2/10
+Priority
+P0 None observed
+P1 Resolved scene obstruction
+P2 Physical-device clue tap comfort and music volume
+P3 Optional environmental detail
+P4 None
+==========

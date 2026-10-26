@@ -69,3 +69,13 @@ Deployment succeeded: appgdep_6ade3c07deec8191801bc12fc21ebb2a; version appgprj_
 - Nine layout profiles passed both languages, including 375x812, 812x375 and 375x635 browser area; screenshots visually inspected. Mobile offline/touch flow and skill action client passed. Actual Safari device retest remains with user. DEBUG_HANDOFF.md records resolved collision investigation.
 
 Marker polish deployed successfully: Site version 3, source 5fbeda1f2a6ee4bc1f9000746cf19d0ab5d4e70a, deployment appgdep_6ade3fdde0d88191b3ce59e62ad3837f. URL and public audience unchanged.
+
+## Immersive exploration + music — 2026-10-26
+- Removed clue marker DOM entirely. Canvas rays hit small object pick volumes at acorn/feather/tunnel or animal models; empty ground only navigates. Existing pathfinding, collision, save and evidence flow retained.
+- Accusation opens immediately from dock/notebook; only discovered evidence is offered. Can submit without evidence: false suspect keeps 2-star retry penalty; correct suspect still needs supporting evidence to close case. Full testimony collection no longer gates accusation.
+- Play HUD hides title/objective, compacts currencies/dock, keeps music/fullscreen controls visible on mobile. Larger portrait overhead perspective and continuous ground fill viewport. Fullscreen feature detected; unsupported browsers get localized Safari home-screen instructions.
+- Original Web Audio 32-note melody with chord accompaniment, starts on Start user gesture; mute saved in v1 optional music field, visibility suspend/resume. No audio downloads or external licenses needed.
+- PASSED exploration.test.mjs (real touch picking, blank lawn, early accusation, unrevealed evidence hidden, music/mute persistence); full case including retry/reward and both languages; nine-profile layout; mobile service-worker offline; direct file zero-network; skill client. Screenshots inspected. Browser resize test now waits for resize handler before reading projected object coordinates.
+- sw cache animal-detective-3d-v4. Pending physical iPhone/Safari fullscreen and audio volume comfort checks.
+
+2026-10-26 publication succeeded: Site version 4, source e1f9d391797493d410a20f56270f27e3ab69b433, deployment appgdep_6adfa159fd448191a266b40e14366f0c. Public audience and URL unchanged.

@@ -30,3 +30,11 @@
 .hotspot.talk{width:44px;padding:0;overflow:visible}
 .name-face{flex-shrink:0;white-space:nowrap}
 @media(max-width:900px){.name-face{width:26px;height:26px;padding:0;justify-content:center;border-radius:50%;gap:0}.name-face svg{width:15px;height:15px}.name-face .actor-name,.name-face small{display:none}}
+/* Immersive play: the garden owns the viewport, secondary information stays in notebooks. */
+#game-stage[data-mode=play] #scene-label,#game-stage[data-mode=play] #objective,#game-stage[data-mode=play] #scene-bottom{display:none}
+#game-stage[data-mode=play] .game-hud{padding:max(10px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));justify-content:flex-end}
+#game-stage[data-mode=play] .hud-right{width:100%;flex-direction:row;align-items:center;justify-content:space-between;gap:6px}
+#game-stage[data-mode=play] .resources{padding:2px 8px;gap:8px;box-shadow:none;background:#f6edcdd9}#game-stage[data-mode=play] .resources i,#game-stage[data-mode=play] .resources b{font-size:15px}
+#sound,#fullscreen{display:inline-block!important}#game-stage[data-mode=play] .game-settings{gap:3px}#game-stage[data-mode=play] .game-settings button{min-width:40px;width:40px;height:44px;padding:2px;font-size:18px;background:#f6edcdd9}#game-stage[data-mode=play] .game-settings #lang{font-size:11px;width:59px}
+@media(max-width:739px){#game-toolbar button{height:54px}#game-toolbar{bottom:max(12px,env(safe-area-inset-bottom))}#movement-pad{bottom:90px;width:88px;height:88px}.dock-icon{font-size:22px}}
+@media(max-height:520px) and (orientation:landscape){#game-toolbar{bottom:max(12px,env(safe-area-inset-bottom));top:auto}#game-toolbar button{height:48px}#movement-pad{bottom:18px}}

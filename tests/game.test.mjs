@@ -7,7 +7,7 @@ const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('response
 await fs.mkdir('output/single-screen',{recursive:true});
 const get=()=>page.evaluate(()=>JSON.parse(window.render_game_to_text()));
 const snap=name=>page.screenshot({path:`output/single-screen/${name}.png`,fullPage:true});
-const click=async sel=>{await page.locator(sel).click();await page.waitForTimeout(60)};
+const click=async sel=>{if(sel.includes('data-scene-clue')){const id=sel.match(/"([^"]+)"/)[1],c=(await get()).clueLocations.find(c=>c.id===id),v=page.viewportSize();await page.mouse.click(c.x*v.width,c.y*v.height)}else await page.locator(sel).click();await page.waitForTimeout(60)};
 const move=async sel=>{await click(sel);await page.evaluate(()=>window.advanceTime(12000));await page.waitForTimeout(60)};
 const closeEvidence=async()=>{await click('#overlay [data-close].primary')};
 async function begin(){await click('#start-btn');await click('#enter-case');if((await get()).modal==='intro')await click('#intro-next');if((await get()).modal==='tool')await click('#claim-tool')}
@@ -36,6 +36,6 @@ try{
  await click('#home');await click('#lang');assert.equal((await get()).language,'nl');await snap('09-dutch-menu');await begin();await click('#hint');await click('#buy-hint');assert.equal((await get()).resources.stars,2);await click('#overlay [data-close]');await snap('10-dutch-garden');
  await page.setViewportSize({width:390,height:844});await snap('11-mobile');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth&&document.documentElement.scrollHeight<=window.innerHeight),true);
  // Test second wrong accusation at zero stars: replay remains possible.
- await page.setViewportSize({width:1440,height:1000});await collect();await allStatements();await accuse('owl','feather');await click('#retry-case');await click('#intro-next');assert.equal((await get()).resources.stars,0);assert.equal((await get()).magnifier,true);
+ await page.setViewportSize({width:1440,height:1000});await page.waitForTimeout(150);await collect();await allStatements();await accuse('owl','feather');await click('#retry-case');await click('#intro-next');assert.equal((await get()).resources.stars,0);assert.equal((await get()).magnifier,true);
  assert.deepEqual(errors,[]);await fs.writeFile('output/single-screen/results.json',JSON.stringify({passed:true,checks:['single viewport, no document scrolling','notebook opens and closes inside stage','gameplay pauses while reading notebook','inventory and permanent magnifier','movement and bounds','evidence collection','dialogue recording','save and reload','wrong evidence recovery','wrong accusation and reset','zero-star recovery','complete confrontation','reward granted once','fox purchase and selection','paid hints','Dutch localization','mobile width and height'],errors,state:await get()},null,2));console.log('PASS: single-screen first-case flow, notebook/inventory, persistence, failure/retry, rewards, fox, Dutch, mobile; no browser errors.');
 }finally{await browser.close()}
