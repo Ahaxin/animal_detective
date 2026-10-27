@@ -160,3 +160,6 @@ P4 Richer ending animation
 
 ## 2026-10-27 footprint patch
 Readability 4/5: three separated dark soles with five toes on light mud, red heels visible at 375x812. No added HUD information. Touch collection passed; physical device verification pending.
+
+## Ice Studio / 2026-10-27
+Readability 4/5; touch 4/5; HUD load 5/5. Added no permanent HUD, counts adapt to 2 clues/3 statements. Portraits expand in parallel with explicit color names; palette close-up shows labeled RGB paint, not color-only information. Dialogue/choices stay in existing internal-scroll overlays. Nine viewport profiles in Chinese/Dutch passed page-overflow and 44px control hit checks. 375x812 portrait, 812x375 landscape and Dutch portrait comparison screenshots inspected. Physical iPhone readability remains user validation.

@@ -60,3 +60,6 @@
 剧情把猴子的说法统一为“昨晚到今天”；红漆颜色不被当作屋顶油漆的唯一来源，脚印和断枝组合后通过脚底核对与供认完成推理。
 
 新增检查：`node tests/orchard.test.mjs`；`node tests/orchard-layout.test.mjs`。
+
+第三关“北极熊画室暗杀案”已加入。无需道具，点击画像与调色盘观察；听完鹦鹉证词后，可组合“调色盘＋洗盘习惯”指认。包含臭鼬特殊失败对话，奖励 3 星、1 爱心、15 金币。设计与用户确认的时间线见 CASE03_STUDIO.md。
+测试：node tests/studio.test.mjs；node tests/studio-layout.test.mjs。

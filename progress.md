@@ -23,3 +23,5 @@ Sites 3D version 2 deployed successfully; public audience preserved. GitHub main
 2026-10-26: Added complete Harvest Orchard case with data-driven zh/nl narrative, original 3D props/animals and SVG portraits. Dual-case v1-compatible snapshots, bag attention badge, tape permanent/rental economy and anti-double-charge guards, multi-select evidence and 3/1/12 reward. Full orchard, original case, nine-profile layouts and offline checks pass. Improved chronology/evidence inference. Packaging release.
 
 2026-10-27: Enlarged orchard footprints and red heels, lightened mud, aligned pick volume. Orchard regression and mandatory skill client passed; phone screenshot inspected. SW v6. Next: physical iPhone feedback.
+
+2026-10-27 third case implemented: user approved skunk alive-at-15:00 / parrot return timeline. New scene, three original SVG portraits, no special tools, dynamic clue counts, evidence+testimony combo, skunk false accusation, police escort, 3/1/15 reward. Tests and screenshots in output/studio; garden/orchard regression passed. Final publication follows validation. Physical iPhone playtest remains next.

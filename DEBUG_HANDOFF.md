@@ -10,3 +10,6 @@ Resolved: narrow landscape additionally required testing against the HUD rectang
 Orchard: first old-save test seeded localStorage before reload and was overwritten by beforeunload autosave. Test now seeds once via addInitScript; production saves unchanged. Test passes. No open defect hypothesis.
 
 2026-10-27 footprint readability: root cause was tiny low-contrast soles and toes on dark mud. Enlarged separated silhouettes, pale mud and vivid red heels verified visually at 375x812; direct-touch evidence and full orchard flow pass. No unresolved defect.
+
+2026-10-27 studio: no repeated unresolved runtime defect. A syntax error introduced while replacing hard-coded clue counts was caught by node --check and fixed before runtime testing. Full third-case and both prior-case flows pass. No known blocking defect.
+Final studio visual check found a straight escort path crossing the sink. Replaced with a fixed path behind the easels and down the clear center aisle; output/studio/escort.png visually verifies the corrected route, full studio flow and skill client passed again.

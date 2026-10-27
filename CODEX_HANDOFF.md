@@ -98,3 +98,12 @@ Orchard release published successfully: Site version 5, source 4da387ce6bbe31fa9
 - Passed orchard full mobile flow (375x812), real-touch clue collection, equipment, retry, paired evidence, rewards, reload and locales; required skill client passed. Screenshots inspected in output/orchard/01-phone-garden.png and output/footprints/skill-client/shot-0.png.
 - Cache bumped to orchard-v6. Physical iPhone Safari remains user validation; previous Site version 5 is rollback point.
 Published version 6: source 5b445f1052091bb571689bdd755c3f72a62694fc, deployment appgdep_6ae0e8c58d5c8191a8bfa879bc53df7f succeeded; public URL unchanged.
+
+## Studio release — 2026-10-27
+- Added third case (studio.js), original ice studio (studio-scene.js + world3d.js), three SVG suspects, portrait comparison/palette close-ups. No tool gate; two physical clues, three statements. Any painting collects the same portrait group.
+- User approved return-visit timeline: skunk really posed at 15:00; parrot returned later, killed the master and repainted his own feathers. No forged skunk portrait. CASE03_STUDIO.md is the current design; studio.js owns full bilingual dialogue.
+- Evidence options now support a discovered testimony card: palette + parrot-habit required. No unrevealed statement leak. Skunk false accusation has bespoke dialogue, hidden detective, immediate saved investigation reset and existing capped 2-star penalty. Standard rabbit false accusation remains.
+- Rewards 3/1/15 once per round. Return to case archive; orchard Next enters studio. Shared v1 resources, permanent tools and per-case progress retained. Cache animal-detective-studio-v7.
+- Passed: third-case complete real-touch flow, no-tool/early accusation, evidence gate, skunk failure/reload, paired evidence, reward-once, Dutch/offline; nine viewports x two locales; original garden and orchard full regression. Screenshots in output/studio/ visually inspected. Required skill input client also run.
+- Risks: actual iPhone Safari/FPS not measured. Police escort is simple programmatic motion; victim is non-graphic. House-building remains unavailable. Next safest task: user physical-phone playtest.
+Studio release published: version 7, source b9d8b231f80721f541ff057b607fbe61f4caed55, deployment appgdep_6ae0f0cc699481919defd5dbb982eb1d succeeded. Public URL unchanged. Version 6 remains the rollback point.

@@ -23,3 +23,5 @@ Use case: illustration-story. Asset type: transparent full body game character s
 Saved: assets/owl-source.png (original), assets/owl.png (trimmed sprite).
 
 Orchard assets (2026-10-26): original code-native low-poly meshes authored in world3d.js; bear, raccoon and monkey vector portraits authored as SVG. No new generated raster images or third-party character assets. Palette and proportions follow the existing 3D garden.
+
+Third-case ice studio, easels, paintings, palette, victim and suspects are original procedural geometry in studio-scene.js/world3d.js. missRabbit.svg, skunk.svg and parrot.svg are original local vector portraits authored for this game. No new external asset license dependencies.
