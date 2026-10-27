@@ -45,9 +45,14 @@ window.createGarden3D=function(canvas,caseId='garden'){
  const peel=mesh(new T.TorusGeometry(.3,.075,6,14,Math.PI*1.4),'#f5cf49',1.6,4.3,.65);peel.rotation.z=-.6;const peel2=mesh(new T.TorusGeometry(.22,.065,6,12,Math.PI),'#efbb32',1.7,4.1,.7);peel2.rotation.z=1;
  gem=ball(0,5.9,-.4,.4,'#efc34d');gem.visible=false;
  const stalk=cyl(0,.48,0,.035,.035,.22,'#755138',gem);stalk.position.set(0,.43,0);
- // Mud and barefoot toes with a red heel; no overlay marker.
- const mud=cyl(-1.4,.05,2.4,1.05,1.05,.08,'#8c694a');mud.scale.z=.8;
- for(let i=0;i<3;i++){const x=-1.7+i*.35,z=2.8-i*.5;const foot=ball(x,.12,z,.32,'#513f2e',scene,[.55,.12,1]);for(let j=0;j<4;j++)ball(x-.17+j*.1,.13,z-.29,.065,'#513f2e',scene,[1,.3,1]);ball(x,.14,z+.2,.12,'#bc4937',scene,[1,.12,1])}
+ // Broad pale mud exposes three separate bare soles and red-painted heels on phones.
+ const mud=cyl(-1.4,.06,2.4,1.65,1.65,.09,'#d0ac78',scene,32);mud.scale.z=1.05;
+ for(const [x,z,angle] of [[-1.95,3.25,-.18],[-.85,2.45,.16],[-1.85,1.65,-.12]]){
+  const footprintPart=(dx,dz,r,color,s)=>ball(x+dx*Math.cos(angle)+dz*Math.sin(angle),.14,z+dz*Math.cos(angle)-dx*Math.sin(angle),r,color,scene,s);
+  footprintPart(0,0,.5,'#34251d',[.64,.09,1]);
+  for(let j=0;j<5;j++)footprintPart(-.29+j*.145,-.48-Math.sin(j/4*Math.PI)*.06,j===0?.12:.095,'#34251d',[1,.4,1]);
+  footprintPart(0,.29,.23,'#e84028',[1,.24,.8]);
+ }
  // East gate and spilled red paint with a trail into the orchard.
  const bucket=cyl(8,.4,0,.42,.36,.75,'#9caca6');bucket.rotation.z=1.2;cyl(8.5,.085,.2,.8,.8,.04,'#bc4937');for(let i=0;i<7;i++)ball(7.4-i*.7,.1,.25+i*.2,.13,'#aa4b35',scene,[1,.2,1.4]);
  box(11,1.8,-1.8,.2,3.6,.2,'#9c7444');box(11,1.8,1.8,.2,3.6,.2,'#9c7444');box(11,3.5,0,.3,.25,3.9,'#b18c52');
@@ -86,7 +91,7 @@ window.createGarden3D=function(canvas,caseId='garden'){
  if(!final)return [];const out=[];while(final&&key(...final)!==key(...start)){out.unshift(norm({x:final[0]*grid,z:final[1]*grid}));final=seen.get(key(...final))}return out;}
  function project(id){const p=points[id]||{x:0,z:0};const v=new T.Vector3(p.x,npcIds.includes(id)?2.6:points[id]?.y??(id==='hole'?.16:.3),p.z).project(camera);return {x:(v.x+1)/2,y:(1-v.y)/2}}
  // Invisible pick volumes cover only the actual evidence objects, not garden regions.
- const pickables=clueIds.map(id=>{const p=points[id],m=new T.Mesh(new T.SphereGeometry(['hole','footprint','branch','paint'].includes(id)?.7:.45,8,6),new T.MeshBasicMaterial());m.position.set(p.x,p.y??(id==='hole'?.16:.3),p.z);m.updateMatrixWorld();m.userData={type:'clue',id};return m});
+ const pickables=clueIds.map(id=>{const p=points[id],m=new T.Mesh(new T.SphereGeometry(id==='footprint'?1.65:['hole','branch','paint'].includes(id)?.7:.45,8,6),new T.MeshBasicMaterial());if(id==='footprint')m.scale.y=.2;m.position.set(p.x,p.y??(id==='hole'?.16:.3),p.z);m.updateMatrixWorld();m.userData={type:'clue',id};return m});
  function pick(x,y){ray.setFromCamera(new T.Vector2(x*2-1,1-y*2),camera);const hits=ray.intersectObjects([...pickables,...npcIds.map(id=>actors[id].g)],true);if(!hits.length)return null;let o=hits[0].object;while(o){if(o.userData.type)return o.userData;for(const id of npcIds)if(o===actors[id].g)return {type:'suspect',id};o=o.parent}return null}
  function resize(w,h){width=w;height=h;renderer.setSize(w,h,false);camera.aspect=w/h;camera.position.set(0,w<h?37:24,w<h?22:27);camera.fov=w<h?47:37;camera.lookAt(look);camera.updateProjectionMatrix();camera.updateMatrixWorld()}
  function render(state,time,target){const p=world(state.player);for(const id of ['bird','fox'])actors[id].g.visible=id===state.character;const a=actors[state.character==='fox'?'fox':'bird'];const speed=lastPos?Math.hypot(p.x-lastPos.x,p.z-lastPos.z):0;if(speed>.0001)facing=Math.atan2(p.x-lastPos.x,p.z-lastPos.z);a.g.position.set(p.x,0,p.z);a.g.rotation.y=facing;a.feet.forEach((f,i)=>f.rotation.x=speed>.0001?Math.sin(time*13+i*Math.PI)*.55:0);lastPos=p;if(!orchard)actors.mole.g.visible=!state.solved;gem.visible=state.solved;gem.rotation.y=time*.5;if(orchard){for(const sole of actors.monkey.g.userData.soles)sole.visible=state.solved;tapeGroup.visible=state.solved;if(state.solved){if(solvedSince===null)solvedSince=time;const progress=Math.min(1,(time-solvedSince)/2);gem.position.set(T.MathUtils.lerp(points.monkey.x,p.x+.75,progress),1.2+Math.sin(progress*Math.PI)*.6,T.MathUtils.lerp(points.monkey.z,p.z,progress));tapeGroup.position.set(p.x+.7,1.15,p.z);tapeGroup.scale.x=.7+.3*Math.sin(time*2)}else solvedSince=null}marker.visible=!!target;if(target){const q=world(target);marker.position.set(q.x,.14,q.z)}renderer.render(scene,camera)}

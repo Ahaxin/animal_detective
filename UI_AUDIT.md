@@ -157,3 +157,6 @@ P2 Physical-device high-branch/east-bucket tap comfort
 P3 Character detail
 P4 Richer ending animation
 ==========
+
+## 2026-10-27 footprint patch
+Readability 4/5: three separated dark soles with five toes on light mud, red heels visible at 375x812. No added HUD information. Touch collection passed; physical device verification pending.

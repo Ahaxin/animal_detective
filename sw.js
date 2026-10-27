@@ -1,4 +1,4 @@
-const CACHE='animal-detective-orchard-v5';
+const CACHE='animal-detective-orchard-v6';
 const FILES=['./','./index.html','./game.js','./orchard.js','./assets/bear.svg','./assets/raccoon.svg','./assets/monkey.svg','./world3d.bundle.js','./game-screen.css','./mobile.js','./manifest.webmanifest','./assets/favicon.svg','./assets/icon-192.png','./assets/icon-512.png',...['garden','garden-portrait','bird','fox','squirrel','mole','owl'].map(name=>`./assets/${name}.webp`)];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('animal-detective-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
@@ -11,3 +11,4 @@ self.addEventListener('fetch',event=>{
  // Only the explicitly listed game shell is cached, never login or API responses.
  event.respondWith(caches.match(event.request).then(cached=>cached||fetch(event.request)));
 });
+

@@ -21,3 +21,5 @@ Sites 3D version 2 deployed successfully; public audience preserved. GitHub main
 2026-10-26: All five requested changes implemented: no clue overlay icons, immersive viewport, actual-object ray picking with empty-ground navigation, immediate accusation entry, original looping music with saved mute. Full case/layout/new interaction/offline tests pass. Physical iPhone audio/fullscreen still user verification.
 
 2026-10-26: Added complete Harvest Orchard case with data-driven zh/nl narrative, original 3D props/animals and SVG portraits. Dual-case v1-compatible snapshots, bag attention badge, tape permanent/rental economy and anti-double-charge guards, multi-select evidence and 3/1/12 reward. Full orchard, original case, nine-profile layouts and offline checks pass. Improved chronology/evidence inference. Packaging release.
+
+2026-10-27: Enlarged orchard footprints and red heels, lightened mud, aligned pick volume. Orchard regression and mandatory skill client passed; phone screenshot inspected. SW v6. Next: physical iPhone feedback.

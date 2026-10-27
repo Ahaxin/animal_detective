@@ -92,3 +92,9 @@ Marker polish deployed successfully: Site version 3, source 5fbeda1f2a6ee4bc1f90
 - Known limits: stylized procedural models and simple ending animation; no third case or house-building implementation. New tool is auto-equipped on acquisition; permanent ownership applies on future replays.
 
 Orchard release published successfully: Site version 5, source 4da387ce6bbe31fa9cd12b89006bffae18a78d3b, deployment appgdep_6adfa80b706081918c527e45492ee4ba. Same public URL.
+
+## Footprint readability — 2026-10-27
+- Maintenance: enlarged orchard mud patch and three separated bare footprints; dark soles/five toes, brighter red heels. Flattened pick volume follows the visible patch. No HUD additions or save/economy changes.
+- Passed orchard full mobile flow (375x812), real-touch clue collection, equipment, retry, paired evidence, rewards, reload and locales; required skill client passed. Screenshots inspected in output/orchard/01-phone-garden.png and output/footprints/skill-client/shot-0.png.
+- Cache bumped to orchard-v6. Physical iPhone Safari remains user validation; previous Site version 5 is rollback point.
+Published version 6: source 5b445f1052091bb571689bdd755c3f72a62694fc, deployment appgdep_6ae0e8c58d5c8191a8bfa879bc53df7f succeeded; public URL unchanged.

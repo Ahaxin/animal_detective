@@ -8,3 +8,5 @@ Resolved: narrow landscape additionally required testing against the HUD rectang
 2026-10-26: Previous leader/marker issue superseded: clue DOM markers removed by user request. Full-case test resize issue resolved by waiting for the resize event before reading projected coordinates; full test passes. No open investigation.
 
 Orchard: first old-save test seeded localStorage before reload and was overwritten by beforeunload autosave. Test now seeds once via addInitScript; production saves unchanged. Test passes. No open defect hypothesis.
+
+2026-10-27 footprint readability: root cause was tiny low-contrast soles and toes on dark mud. Enlarged separated silhouettes, pale mud and vivid red heels verified visually at 375x812; direct-touch evidence and full orchard flow pass. No unresolved defect.
